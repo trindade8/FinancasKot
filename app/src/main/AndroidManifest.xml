@@ -11,7 +11,7 @@
 
         <activity
             android:name=".ui.activity.ListaTransacoesActivity"
-            android:theme="@style/Theme.AppCompat">
+            android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"></category>
                 <action android:name="android.intent.action.MAIN"/>

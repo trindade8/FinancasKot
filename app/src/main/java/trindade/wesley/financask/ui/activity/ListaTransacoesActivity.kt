@@ -19,11 +19,11 @@ class ListaTransacoesActivity  : AppCompatActivity() {
         setContentView(R.layout.activity_lista_transacoes)
 
         val transacoes =
-                listOf(Transacao(BigDecimal(25),"Comida", Tipo.DESPESA),
-                        Transacao(BigDecimal(45),"Economia",Tipo.RECEITA),
+                listOf(Transacao(BigDecimal(25),"comida ", Tipo.DESPESA),
+                        Transacao(BigDecimal(45),"economia",Tipo.RECEITA),
                         Transacao(tipo = Tipo.RECEITA,
                                 valor= BigDecimal(150),
-                                categoria = "Crédito"))
+                                categoria = "crédito referente ao cliente XML de Saida"))
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,transacoes)
         lista_transacoes_listview.setAdapter(ListaTransacoesAdapter(transacoes,this))
 
