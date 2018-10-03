@@ -16,28 +16,20 @@ import trindade.wesley.financask.ui.model.Tipo
 import trindade.wesley.financask.ui.model.Transacao
 
 
-class ListaTransacoesAdapter(transacoes: List<Transacao>,
-                             context: Context) : BaseAdapter() {
+class ListaTransacoesAdapter(private val transacoes: List<Transacao>,
+                             private val contexto: Context) : BaseAdapter() {
 
-    private val transacoes = transacoes
-    private val contexto = context
+    private val LimiteCaracteres = 14
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var viewCriada = LayoutInflater.from(contexto).inflate(R.layout.transacao_item, parent, false)
         var transacao = transacoes[position]
 
-        if (transacao.tipo == Tipo.DESPESA) {
-            viewCriada.transacao_valor.setTextColor(ContextCompat.getColor(contexto, R.color.despesa))
-            viewCriada.transacao_icone.setBackgroundResource(R.drawable.icone_transacao_item_despesa)
-        } else {
-            viewCriada.transacao_valor.setTextColor(ContextCompat.getColor(contexto, R.color.receita))
-            viewCriada.transacao_icone.setBackgroundResource(R.drawable.icone_transacao_item_receita)
-        }
+        adicionaValor(transacao, viewCriada)
+        adicionaCategoria(transacao, viewCriada)
+        adicionaData(transacao, viewCriada)
+        adicionaIcone(transacao, viewCriada)
 
-
-        viewCriada.transacao_valor.text = transacao.valor.formataParaBrasileiro()
-        viewCriada.transacao_categoria.text = transacao.categoria.limitaCaracteres()
-        viewCriada.transacao_data.text = transacao.data.formataParaBrasileiro()
         return viewCriada
     }
 
@@ -54,5 +46,36 @@ class ListaTransacoesAdapter(transacoes: List<Transacao>,
         return this.transacoes.size
     }
 
+    fun adicionaValor(transacao: Transacao, viewCriada: View) {
+        viewCriada.transacao_valor.setTextColor(porCor(transacao.tipo))
+        viewCriada.transacao_valor.text = transacao.valor.formataParaBrasileiro()
+    }
+
+    fun adicionaIcone(transacao: Transacao, viewCriada: View) {
+        viewCriada.transacao_icone.setBackgroundResource(getIconeLancamento(transacao.tipo))
+    }
+
+    fun adicionaCategoria(transacao: Transacao, viewCriada: View) {
+        viewCriada.transacao_categoria.text = transacao.categoria.limitaCaracteres()
+    }
+
+    fun adicionaData(transacao: Transacao, viewCriada: View) {
+        viewCriada.transacao_data.text = transacao.data.formataParaBrasileiro()
+    }
+
+    fun getIconeLancamento(tipo: Tipo): Int {
+        if (tipo == Tipo.RECEITA)
+            return R.drawable.icone_transacao_item_receita
+        else
+            return R.drawable.icone_transacao_item_despesa
+    }
+
+    fun porCor(tipo: Tipo): Int {
+        if (tipo == Tipo.RECEITA)
+            return ContextCompat.getColor(contexto, R.color.receita)
+        else
+            return ContextCompat.getColor(contexto, R.color.despesa)
+
+    }
 
 }
