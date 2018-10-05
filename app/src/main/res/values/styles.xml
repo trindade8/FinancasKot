@@ -7,6 +7,30 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:windowTitleBackgroundStyle">@color/colorBackgroundBarTitle</item>
+        <item name="android:titleTextStyle">@color/colorBackgroundBarTitle</item>
+        <item name="android:textColor">#848484</item>
+    </style>
+
+    <style name="ThemePlayer" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorBackgroundPlayer</item>
+        <item name="android:windowTitleBackgroundStyle">@color/colorBackgroundBarTitle</item>
+        <item name="android:titleTextStyle">@color/colorBackgroundBarTitle</item>
+        <item name="android:textColor">#848484</item>
+    </style>
+
+    <style name="AppThemeLight" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:windowTitleBackgroundStyle">@color/colorBackgroundBarTitle</item>
+        <item name="android:titleTextStyle">@color/colorBackgroundBarTitle</item>
         <item name="android:textColor">#848484</item>
     </style>
 

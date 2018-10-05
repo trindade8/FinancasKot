@@ -1,4 +1,4 @@
-package trindade.wesley.financask.ui.adapter
+package trindade.wesley.financask.ui.financas.adapter
 
 import android.content.Context
 import android.support.v4.content.ContextCompat
@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.transacao_item.view.*
 import trindade.wesley.financask.R
-import trindade.wesley.financask.ui.extension.formataParaBrasileiro
-import trindade.wesley.financask.ui.extension.limitaCaracteres
-import trindade.wesley.financask.ui.extension.primeiraMaiuscula
-import trindade.wesley.financask.ui.extension.primeirasMaiusculas
-import trindade.wesley.financask.ui.model.Tipo
-import trindade.wesley.financask.ui.model.Transacao
+import trindade.wesley.financask.ui.financas.extension.formataParaBrasileiro
+import trindade.wesley.financask.ui.financas.extension.limitaCaracteres
+import trindade.wesley.financask.ui.financas.model.Tipo
+import trindade.wesley.financask.ui.financas.model.Transacao
 
 
 class ListaTransacoesAdapter(private val transacoes: List<Transacao>,

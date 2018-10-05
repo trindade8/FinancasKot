@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#367C25</color>
-    <color name="colorPrimaryDark">#256c13</color>
-    <color name="colorAccent">#367C25</color>
+    <color name="colorPrimary">#257c7b</color>
+    <color name="colorPrimaryDark">#13546c</color>
+    <color name="colorAccent">#25737c</color>
+    <color name="colorBackgroundBarTitle">#3186ef</color>
     <color name="colorBackground">#C1C1C1</color>
+    <color name="colorBackgroundPlayer">#f9f9f9</color>
     <color name="receita">#607890</color>
+    <color name="resumo_receita">#45cf59</color>
+    <color name="resumo_despesa">#B22318</color>
     <color name="despesa">#B22318</color>
 </resources>

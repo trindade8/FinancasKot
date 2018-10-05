@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="trindade.wesley.financask">
 
@@ -8,15 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
-            android:name=".ui.activity.ListaTransacoesActivity"
-            android:theme="@style/Theme.AppCompat.Light">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER"></category>
-                <action android:name="android.intent.action.MAIN"/>
-            </intent-filter>
-        </activity>
+            android:name=".ui.financas.activity.ListaTransacoesActivity"
+            android:theme="@style/AppTheme">
 
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".ui.player.Player"
+            android:theme="@style/ThemePlayer" >
+
+        </activity>
     </application>
+
 </manifest>

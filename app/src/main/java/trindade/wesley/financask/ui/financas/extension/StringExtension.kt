@@ -1,4 +1,4 @@
-package trindade.wesley.financask.ui.extension
+package trindade.wesley.financask.ui.financas.extension
 
 val LIMITE_CARACTERES = 14
 fun String.limitaCaracteres() : String{

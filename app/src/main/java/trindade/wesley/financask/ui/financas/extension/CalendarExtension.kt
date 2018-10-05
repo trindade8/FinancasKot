@@ -1,4 +1,4 @@
-package trindade.wesley.financask.ui.extension
+package trindade.wesley.financask.ui.financas.extension
 
 import java.math.BigDecimal
 import java.text.DecimalFormat
@@ -13,5 +13,8 @@ fun Calendar.formataParaBrasileiro() : String {
 fun BigDecimal.formataParaBrasileiro() : String
 {
     val formatoBrasileiro = DecimalFormat.getCurrencyInstance(Locale("pt", "br"))
-    return formatoBrasileiro.format(this).replace("R$","R$ ")
+    if(this.compareTo(BigDecimal.ZERO) < 0 )
+        return formatoBrasileiro.format(this* BigDecimal(-1)).replace("R$","-R$ ")
+    else
+        return formatoBrasileiro.format(this).replace("R$","R$ ")
 }
