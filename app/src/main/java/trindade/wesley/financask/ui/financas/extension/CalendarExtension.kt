@@ -18,3 +18,11 @@ fun BigDecimal.formataParaBrasileiro() : String
     else
         return formatoBrasileiro.format(this).replace("R$","R$ ")
 }
+
+fun Calendar.formataParaBrasileiro(texto : String) : Calendar{
+
+    val formatoBrasileiro = SimpleDateFormat("dd/MM/yyy")
+    this.time =formatoBrasileiro.parse(texto)
+    return this
+
+}

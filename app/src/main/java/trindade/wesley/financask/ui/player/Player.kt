@@ -98,7 +98,7 @@ class Player : AppCompatActivity() {
     }
 
     fun configuraPlayer() {
-        mp = MediaPlayer.create(this, R.raw.sample_one)
+        mp = MediaPlayer.create(this,R.raw.sample_one)
         mp.setLooping(true)
         mp.seekTo(0)
         mp.setVolume(0.5f, 0.5f)

@@ -6,7 +6,8 @@ import java.util.*
 class Transacao(val  valor: BigDecimal,
                 val categoria : String,
                 val tipo : Tipo,
-                val data : Calendar = Calendar.getInstance()) {
+                val data : Calendar = Calendar.getInstance(),
+                val codigo : String ="") {
 
     constructor(valor : BigDecimal, tipo : Tipo) : this(valor,"Indefinida",tipo)
     constructor(valor : BigDecimal, tipo : Tipo, data : Calendar) : this(valor,"Indefinida",tipo)
