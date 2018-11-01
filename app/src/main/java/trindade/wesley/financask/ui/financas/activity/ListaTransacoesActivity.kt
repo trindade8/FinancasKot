@@ -34,11 +34,12 @@ class ListaTransacoesActivity : AppCompatActivity() , TransacaoDelegate {
 
 
     private var transacoes: MutableList<Transacao> = mutableListOf()
+    private lateinit var view   : View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_transacoes)
-
+        view = window.decorView
 
         configuraListaAdapter()
         populaCabecalhoSuperior()
@@ -46,24 +47,29 @@ class ListaTransacoesActivity : AppCompatActivity() , TransacaoDelegate {
     }
 
     fun configuraListaAdapter() {
-        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, transacoes)
-        lista_transacoes_listview.setAdapter(ListaTransacoesAdapter(transacoes, this))
-        lista_transacoes_listview.setOnItemClickListener{parent,view,posicao,id->
-            val transacao = transacoes[posicao]
-            AlteraTransacaoDialog(window.decorView,this,transacao)
-                    .alteraTransacaoDialog(object : TransacaoDelegate{
-                        override fun delagate(transacao: Transacao) {
-                            transacoes[posicao]=transacao
-                            configuraListaAdapter()
-                            populaCabecalhoSuperior()
-                        }
 
-                    })
-
-
+        with(lista_transacoes_listview)
+        {
+            lista_transacoes_listview.setAdapter(ListaTransacoesAdapter(transacoes, this@ListaTransacoesActivity))
+            lista_transacoes_listview.setOnItemClickListener{parent,view,posicao,id->
+                val transacao = transacoes[posicao]
+                chamaDialogAlteracao(transacao, posicao)
+            }
         }
+        //val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, transacoes)
 
+    }
 
+    private fun chamaDialogAlteracao(transacao: Transacao, posicao: Int) {
+        AlteraTransacaoDialog(this.view, this, transacao)
+                .alteraTransacaoDialog(object : TransacaoDelegate {
+                    override fun delagate(transacao: Transacao) {
+                        transacoes[posicao] = transacao
+                        configuraListaAdapter()
+                        populaCabecalhoSuperior()
+                    }
+
+                })
     }
 
     private fun configuraFabButtons()
@@ -79,7 +85,7 @@ class ListaTransacoesActivity : AppCompatActivity() , TransacaoDelegate {
 
 
     private fun chamaDialogTransacao(tipo : Tipo) {
-        TransacaoDialog(window.decorView, this, tipo).adicionaTransacaoDialog(this)
+        TransacaoDialog(this.view, this, tipo).adicionaTransacaoDialog(this)
     }
 
 
